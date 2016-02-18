@@ -1,2 +1,6 @@
+# Generic
+*.pyc
+*.sqlite
 
+# IDE
 .idea/
