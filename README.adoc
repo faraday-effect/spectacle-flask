@@ -10,3 +10,8 @@ Specifications grading application in Flask.
 * https://flask-script.readthedocs.org/en/latest/[Flask Script]
 * http://flask-sqlalchemy.pocoo.org/[Flask SQL Alchemy]
 * https://flask-wtf.readthedocs.org/en/latest/[Flask WTForms]
+
+== References
+
+A lot of the early structure of this application was inspired and informed
+by Grinberg, _Flask Web Development_, O'Reilly, 2014, ISBN 978-1-4493-7262-0.
