@@ -2,7 +2,11 @@
 
 Specifications grading application in Flask.
 
-== Resources
+== Plugins Used
 
 * http://pythonhosted.org/Flask-Bootstrap/[Flask Bootstrap]
 * https://flask-login.readthedocs.org/en/latest/[Flask Login]
+* https://flask-migrate.readthedocs.org/en/latest/[Flask Migrate]
+* https://flask-script.readthedocs.org/en/latest/[Flask Script]
+* http://flask-sqlalchemy.pocoo.org/[Flask SQL Alchemy]
+* https://flask-wtf.readthedocs.org/en/latest/[Flask WTForms]
