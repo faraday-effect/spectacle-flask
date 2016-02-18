@@ -5,3 +5,4 @@ Specifications grading application in Flask.
 == Resources
 
 * http://pythonhosted.org/Flask-Bootstrap/[Flask Bootstrap]
+* https://flask-login.readthedocs.org/en/latest/[Flask Login]

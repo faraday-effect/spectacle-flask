@@ -23,7 +23,7 @@ class User(UserMixin, db.Model):
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        return '<User %r>' % self.email
 
     @property
     def password(self):
@@ -39,4 +39,3 @@ class User(UserMixin, db.Model):
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
-

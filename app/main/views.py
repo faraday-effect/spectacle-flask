@@ -1,9 +1,5 @@
-from datetime import datetime
 from flask import render_template
 from . import main
-from .forms import LoginForm
-from .. import db
-from ..models import User
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
