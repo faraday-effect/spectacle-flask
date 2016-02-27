@@ -6,6 +6,7 @@ from .. import db
 from ..models import User
 from .forms import LoginForm, RegistrationForm
 
+
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -17,12 +18,14 @@ def login():
         flash('Invalid username or password.')
     return render_template('auth/login.html', form=form)
 
+
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     flash('You have been logged out.')
     return redirect(url_for('main.index'))
+
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
