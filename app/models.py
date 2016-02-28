@@ -55,5 +55,7 @@ class Section(db.Model):
     year = db.Column(db.Integer)
     course = db.Column(db.Integer, db.ForeignKey('course.id'))
 
+    the_course = db.relationship('Course')
+
     def __repr__(self):
         return '<Section {} {} {} {}>'.format(self.number, self.course.name, self.semester, self.year)

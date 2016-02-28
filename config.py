@@ -14,13 +14,14 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    DEBUG_TB_INTERCEPT_REDIRECTS = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db-dev.sqlite')
     SQLALCHEMY_ECHO = True
 
 
 class TestingConfig(Config):
-    TESTING = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db-test.sqlite')
+    TESTING = True
 
 
 config = {

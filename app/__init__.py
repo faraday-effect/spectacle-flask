@@ -1,13 +1,14 @@
 from flask import Flask
-from flask.ext.admin import Admin
-from flask.ext.admin.contrib.sqla import ModelView
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.login import LoginManager
+from flask.ext.debugtoolbar import DebugToolbarExtension
 
-from models import db, User, Role, Course, Section
+from models import db, User
 from config import config
+from admin import admin
 
 bootstrap = Bootstrap()
+toolbar = DebugToolbarExtension()
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
@@ -17,19 +18,17 @@ login_manager.login_view = 'auth.login'
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-admin = Admin()
-for model in (Course, Role, Section, User):
-     admin.add_view(ModelView(model, db.session, category='Models'))
 
 def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
 
+    admin.init_app(app)
     bootstrap.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
-    admin.init_app(app)
+    toolbar.init_app(app)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
