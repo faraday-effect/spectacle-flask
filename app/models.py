@@ -1,13 +1,7 @@
 from flask.ext.login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-
-from . import db
-from . import login_manager
-
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+from flask.ext.sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
 
 
 user_role = db.Table('user_role',
@@ -59,7 +53,7 @@ class Section(db.Model):
     number = db.Column(db.SmallInteger)
     semester = db.Column(db.Enum('Fall', 'Interterm', 'Spring', 'Summer'))
     year = db.Column(db.Integer)
-    course = db.Column(db.ForeignKey('course.id'))
+    course = db.Column(db.Integer, db.ForeignKey('course.id'))
 
     def __repr__(self):
         return '<Section {} {} {} {}>'.format(self.number, self.course.name, self.semester, self.year)

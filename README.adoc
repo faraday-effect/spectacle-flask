@@ -13,5 +13,8 @@ Specifications grading application in Flask.
 
 == References
 
-A lot of the early structure of this application was inspired and informed
-by Grinberg, _Flask Web Development_, O'Reilly, 2014, ISBN 978-1-4493-7262-0.
+A lot of the early structure of this application was inspired and informed by:
+
+* Grinberg, _Flask Web Development_, O'Reilly, 2014, ISBN 978-1-4493-7262-0.
+* Stouffer, _Mastering Flask_, Packt Publishing, 2015, ISBN 978-1-78439-365-6
+
