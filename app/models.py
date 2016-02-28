@@ -5,6 +5,11 @@ from . import db
 from . import login_manager
 
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
 user_role = db.Table('user_role',
                      db.Column('user_id', db.ForeignKey('user.id'), primary_key=True),
                      db.Column('role_id', db.ForeignKey('role.id'), primary_key=True))
@@ -16,7 +21,7 @@ class Role(db.Model):
     users = db.relationship('User', secondary=user_role, back_populates='roles')
 
     def __repr__(self):
-        return '<Role %r>' % self.name
+        return '<Role {}>'.format(self.name)
 
 
 class User(UserMixin, db.Model):
@@ -26,7 +31,7 @@ class User(UserMixin, db.Model):
     roles = db.relationship('Role', secondary=user_role, back_populates='users')
 
     def __repr__(self):
-        return '<User %r>' % self.email
+        return '<User {}>'.format(self.email)
 
     @property
     def password(self):
@@ -40,6 +45,21 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+class Course(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    code = db.Column(db.String(32), unique=True)
+    name = db.Column(db.String(128))
+
+    def __repr__(self):
+        return '<Course {}-{}>'.format(self.code, self.name)
+
+
+class Section(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.SmallInteger)
+    semester = db.Column(db.Enum('Fall', 'Interterm', 'Spring', 'Summer'))
+    year = db.Column(db.Integer)
+    course = db.Column(db.ForeignKey('course.id'))
+
+    def __repr__(self):
+        return '<Section {} {} {} {}>'.format(self.number, self.course.name, self.semester, self.year)

@@ -2,7 +2,7 @@
 
 import os
 from app import create_app, db
-from app.models import User, Role
+from app.models import User, Role, Course, Section
 from flask.ext.script import Manager, Shell
 from flask.ext.migrate import Migrate, MigrateCommand
 
@@ -53,6 +53,21 @@ def load():
     student2.password = 'pass'
     student2.roles = [ student_role ]
     db.session.add(student2)
+
+    db.session.commit()
+
+    Course.query.delete()
+    course1 = Course(code="COS284", name='Intro to Computer Systems')
+    db.session.add(course1)
+    course2 = Course(code="SYS394", name='Information Systems Design')
+    db.session.add(course2)
+
+    db.session.commit()
+
+    Section.query.delete()
+    db.session.add(Section(number=1, semester='Spring', year=2016, course=course1.id))
+    db.session.add(Section(number=1, semester='Spring', year=2016, course=course2.id))
+    db.session.add(Section(number=2, semester='Spring', year=2016, course=course2.id))
 
     db.session.commit()
 
