@@ -1,0 +1,77 @@
+[
+    {
+        "category": "HTML",
+        "outcomes": [
+            "Construct a basic HTML page",
+            "Add basic styling to an HTML page using CSS"
+        ]
+    },
+    {
+        "category": "SQL DML",
+        "outcomes": [
+            "Create a database table using SQL",
+            "Create a database index using SQL",
+            "Specify single or compound primary keys in a database table",
+            "Create foreign key references between database tables"
+        ]
+    },
+    {
+        "category": "SQL DDL",
+        "outcomes": [
+            "Query a database using SQL",
+            "Add a new record to a database using SQL",
+            "Update an existing record in a database using SQL",
+            "Delete an existing database record using SQL"
+        ]
+    },
+    {
+        "category": "Git and GitHub",
+        "outcomes": [
+            "Clone a git repository from GitHub",
+            "Commit changes in a git repository",
+            "Push changes from a local git repository to GitHub"
+        ]
+    },
+    {
+        "category": "Scrum",
+        "outcomes": [
+            "Write user stories that specify desired product behavior",
+            "Translate user stories into tasks",
+            "Prioritize user stories according to customer requirements"
+        ]
+    },
+    {
+        "category": "Project Management",
+        "outcomes": [
+            "Use Trello to manage a software development project",
+            "Use Planning Poker to estimate project task durations",
+            "Use stand-up meetings in a Scrum process",
+            "Understand and act as Scrum Master in a Scrum project",
+            "Understand and act as Product Owner in a Scrum project"
+        ]
+    },
+    {
+        "category": "Database Programming",
+        "outcomes": [
+            "Wrap SQL queries in a Python function",
+            "Wrap SQL insert statements in a Python function",
+            "Wrap SQL update statements in a Python function",
+            "Wrap SQL delete statements in a Python function"
+        ]
+    },
+    {
+        "category": "Templates",
+        "outcomes": [
+            "Write a Flask view function that renders an HTML template",
+            "Write an HTML page template using Jinja",
+            "Pass template variables from Python into a Jinja template",
+            "Extend an Jinja template from another template"
+        ]
+    },
+    {
+        "category": "Flask",
+        "outcomes": [
+            "Apply Flask routes to a view function"
+        ]
+    }
+]

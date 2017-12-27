@@ -3,9 +3,9 @@ from flask.ext.bootstrap import Bootstrap
 from flask.ext.login import LoginManager
 from flask.ext.debugtoolbar import DebugToolbarExtension
 
-from models import db, User
-from config import config
 from admin import admin
+from config import config
+from models import db, User
 
 bootstrap = Bootstrap()
 toolbar = DebugToolbarExtension()
